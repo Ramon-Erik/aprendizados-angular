@@ -1,0 +1,16 @@
+ng g -> gerar algo
+
+um componente é composto por quatro arquivos
+
+ng build -> compila os arquivos da pasta src para a pasta dist/browser 
+
+compnente
+- template html
+- estilos (css)
+- classe TS
+  - arquivos .spec significam um código de teste unitário
+
+@ -> decorator
+- a classe em seguida faz parte do componente
+- bootstrapaplication (no main ts) chama o AppComponent (classe do componente) e isso vai para o html do site
+- o standalone facilita a utilização dos componentes, tira a necessidade de ficar imprtando e exportando
