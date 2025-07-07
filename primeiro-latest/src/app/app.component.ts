@@ -6,7 +6,7 @@ import { NewComponent } from './compnents/new-component/new-component.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NewComponent],
+  imports: [NewComponent],
   template: `
   <!--<router-outlet></router-outlet> -->
     <h1>Oii {{title}}</h1>
