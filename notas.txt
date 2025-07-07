@@ -19,3 +19,12 @@ ng g component compnents/new-component
 - cria uma pasta (caso não exista) e cria o NewComponentCompnent
 
 ou ng g c <pasta/nome>
+
+@Compnent
+- styleUrls: []
+    uma lista de caminhos separados por virgulas
+- styleUrl: ''
+    uma string de caminho de css
+- style: ['']
+    coloca códigos css
+    não é passado para filhos

@@ -1,0 +1,16 @@
+// :host {
+//   // host: se refere ao componente em questão
+//   // aplica estilos no próprio componente, mas pode aplicar nos filhos
+//   // não deixa vazar nada
+//   h2 {
+//     color: aquamarine;
+//   }
+// }
+
+:host-context(.theme-dark) {
+  // serve para aplicar estilos condicionais nos filhos base no pai
+  h2 {
+    background: #ffffff;
+    color: black; 
+  }
+}
