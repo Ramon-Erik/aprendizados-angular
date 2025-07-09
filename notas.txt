@@ -28,3 +28,6 @@ ou ng g c <pasta/nome>
 - style: ['']
     coloca códigos css
     não é passado para filhos
+
+da certo passar funções por parametros, mas elas podem dar memory leak, se na execução 
+da certo passar valores para parametros com [parametro]="variavel"

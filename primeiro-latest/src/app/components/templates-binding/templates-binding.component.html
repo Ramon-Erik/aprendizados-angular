@@ -1,1 +1,30 @@
-<p>templates-binding works!</p>
+<h2>Templates binding</h2>
+<p>Text interpolation!</p>
+<p>{{name}} is {{age}} years old</p>
+
+{{name ==="Ramon" ? "som" : "asa"}}
+<p>{{condition}}</p>
+<p>
+  <button [disabled]="isDisabled">BTN</button>
+</p>
+
+<span>
+  <p [class.back-red]="age <= 18">Oi</p>
+  <p [style.background]="isGreen">Oi</p>
+</span>
+
+<span>
+  <button (click)="older()">Ficou mais velho?</button>
+  <button (click)="newer()">Ficou mais velho?</button>
+  <button (click)="amarelar()">verde?</button>
+</span>
+
+<p>
+  <input [(ngModel)]="name">
+</p>
+<p>
+  {{name}}
+</p>
+
+<!-- ngclass precisa do CommonModule ou do ngclass importad -->
+<p [ngClass]=""></p>
