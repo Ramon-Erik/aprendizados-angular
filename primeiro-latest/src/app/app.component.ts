@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { NewComponent } from './components/new-component/new-component.component';
-import { TemplatesBindingComponent } from "./components/templates-binding/templates-binding.component";
+import { TemplatesBindingComponent } from "./components/templates/templates-binding/templates-binding.component";
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,9 @@ import { TemplatesBindingComponent } from "./components/templates-binding/templa
   <!--<router-outlet></router-outlet> -->
     <h1>Oii {{title}}</h1>
     <div class="theme-dark">
-      <app-new-component/>
-      <app-templates-binding/>
+      <!-- <app-new-component/>
+      <app-templates-binding/> -->
+      
     </div>
   `,
 })
