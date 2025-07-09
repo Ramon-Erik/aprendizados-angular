@@ -26,5 +26,10 @@
   {{name}}
 </p>
 
-<!-- ngclass precisa do CommonModule ou do ngclass importad -->
-<p [ngClass]=""></p>
+<!-- diretivas ngclass precisa do CommonModule ou do ngclass importado. ou usa o common, ou importa todos -->
+<!-- classes condicionais, dá para usar valores da classe -->
+<p [ngClass]="{ 'back-red': true }">oieeeee</p>
+
+<div [ngStyle]="{
+  color: age <= 20 ? 'yellow' : 'red'
+}">Estilos condicinais</div>
