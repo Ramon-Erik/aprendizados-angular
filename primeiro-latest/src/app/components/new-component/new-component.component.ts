@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './new-component.component.scss'
 })
 export class NewComponent {
-
+  public state: string = "invalid"
+  public book: object = {
+    nome: "Confissões"
+  }
 }

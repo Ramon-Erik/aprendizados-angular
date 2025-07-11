@@ -1,6 +1,9 @@
-<h2>Templates variable</h2>
+<h2 #h2 >Templates variable</h2>
 <div>
+  <p> {{ h2.innerText }} </p>
   <!-- não muda conforme alterações -->
   <input #name type="text" value="ramon" />
   <p>{{ name.value }}</p>
 </div>
+
+<app-new-component/>
