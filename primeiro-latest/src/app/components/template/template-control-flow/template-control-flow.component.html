@@ -36,3 +36,32 @@
     } 
   </p>
 }
+
+<p>
+  <label>Nome: <input #bookTitle type="text"></label>
+  <button (click)="addNewTitle(bookTitle.value)">Adicionar livro</button>
+</p>
+
+<ol>
+  @for (
+    book of books; track book.id;
+    let i = $index;
+    let c = $count;
+    let f = $first;
+    let l = $last;
+    let e = $even;
+    let o = $odd;
+  ) {
+    <!-- count mostra o tamanho do array, não do objeto, o resto é sobre o item -->
+    <li>{{book.titulo}}
+      <ol>
+        <li>Index: <strong>{{i}}</strong></li>
+        <li>Count: <strong>{{c}}</strong></li>
+        <li>First: <strong>{{f}}</strong></li>
+        <li>Last: <strong>{{l}}</strong></li>
+        <li>Even: <strong>{{e}}</strong></li>
+        <li>Odd: <strong>{{o}}</strong></li>
+      </ol>
+    </li>
+  }
+</ol>
