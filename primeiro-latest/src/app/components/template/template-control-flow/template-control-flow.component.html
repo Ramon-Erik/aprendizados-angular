@@ -2,28 +2,34 @@
 <h3>IF</h3>
 <p>&commat;if é da nova versdão</p>
 <button (click)="changeCondition()">Toggle condition</button>
-<p>@if (condition) {
-  &commat;if (1 === 1)
-} @else {
-  &commat;else 1 != 1
-}
-</p>
-<p>na forma antiga vocÊ cria um container e usa *ngIf="" dentro dos atributos da tag. precisa do common module ou o ngif nos imports</p>
-<ng-container *ngIf="condition; else negado">
-  mostrando a maneira antiga
-</ng-container>
-<ng-template #negado>
-  mostrando  else da maneira antiga
-</ng-template>
 
-<h2>Laços</h2>
-
-<p>@if (loadingData$ | async; as data) {
-  &commat;if (1 === 1)
+@if (mostrarAulas) {
+  <p>@if (mostrarAulas) {
+    &commat;if (1 === 1)
+  } @else {
+    &commat;else 1 != 1
+  }
+  </p>
+  <p>na forma antiga vocÊ cria um container e usa *ngIf="" dentro dos atributos da tag. precisa do common module ou o ngif nos imports</p>
+  <ng-container *ngIf="mostrarAulas; else negado">
+    mostrando a maneira antiga
+  </ng-container>
+  <ng-template #negado>
+    mostrando  else da maneira antiga
+  </ng-template>
+  
+  <h2>Laços</h2>
+  
   <p>
-    @for(livro of data; track livro) {
-      <li>{{livro}}</li>
-    }
+    @if (loadingData$ | async; as data) {
+    &commat;if (1 === 1)
+    <p>
+      @for(livro of data; track livro) {
+        <li>{{livro}}</li>
+      }
+    </p>
+    } @else {
+      <span>Carregando...</span>
+    } 
   </p>
 }
-</p>

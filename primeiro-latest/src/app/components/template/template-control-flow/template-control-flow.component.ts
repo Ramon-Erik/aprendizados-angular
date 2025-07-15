@@ -7,16 +7,17 @@ import { delay, Observable, of } from 'rxjs';
   standalone: true,
   imports: [NgIf, AsyncPipe, NgFor],
   templateUrl: './template-control-flow.component.html',
-  styleUrl: './template-control-flow.component.scss'
+  styleUrl: './template-control-flow.component.scss',
 })
 export class TemplateControlFlowComponent {
-  public condition = false
+  public mostrarAulas = false;
   public changeCondition() {
-    this.condition = !this.condition 
+    this.mostrarAulas = !this.mostrarAulas;
   }
+  // cria um observable que emite, depois de 1 segundo um array
   public loadingData$: Observable<string[]> = of([
     'Confissões',
     'Ortodoxia',
-    'Cartas de um aprendiz ao seu diabo'
-  ]).pipe(delay(1000))
+    'Cartas de um aprendiz ao seu diabo',
+  ]).pipe(delay(1000));
 }
