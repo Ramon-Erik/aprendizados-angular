@@ -1,9 +1,12 @@
-<p>template-control-flow works!</p>
-<h3>IF</h3>
-<p>&commat;if é da nova versdão</p>
-<button (click)="changeCondition()">Toggle condition</button>
+<p>
+  click no botão para mostrar as aulas passadas<br>
+  <button (click)="changeCondition()">Toggle condition</button>
+</p>
 
 @if (mostrarAulas) {
+  <p>template-control-flow works!</p>
+  <h3>IF</h3>
+  <p>&commat;if é da nova versdão</p>
   <p>@if (mostrarAulas) {
     &commat;if (1 === 1)
   } @else {
