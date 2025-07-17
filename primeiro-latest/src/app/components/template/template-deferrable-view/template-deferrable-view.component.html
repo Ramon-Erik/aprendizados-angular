@@ -1,0 +1,11 @@
+<p>template-deferrable-view works!</p>
+
+@defer () {
+  <app-template-control-flow/>
+} @placeholder {
+  <p>Mostrar antes</p>
+} @loading {
+  <p>loading...</p>
+} @error {
+  <p>Falhou</p>
+}
