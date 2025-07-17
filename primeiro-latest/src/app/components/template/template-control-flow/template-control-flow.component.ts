@@ -1,11 +1,11 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf, NgSwitch } from '@angular/common';
 import { Component } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-template-control-flow',
   standalone: true,
-  imports: [NgIf, AsyncPipe],
+  imports: [NgIf, AsyncPipe, NgSwitch],
   templateUrl: './template-control-flow.component.html',
   styleUrl: './template-control-flow.component.scss',
 })
@@ -112,4 +112,6 @@ export class TemplateControlFlowComponent {
     'Ortodoxia',
     'Cartas de um aprendiz ao seu diabo',
   ]).pipe(delay(1000));
+
+  public swCond = "B"
 }
