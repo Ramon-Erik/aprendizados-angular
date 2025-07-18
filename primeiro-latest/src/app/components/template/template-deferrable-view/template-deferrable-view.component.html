@@ -1,10 +1,26 @@
 <p>template-deferrable-view works!</p>
 
-@defer () {
+<!-- 
+parametros do defer - carregar arquivos pesados quando
+on - condição para acionar (
+  timer, carrega após n milisegundos ou n x segundos (1s ou 1000ms) 
+  idle, carrega quando o navegador está ocioso
+  viewport, quando o elemento entra na viewport
+  hover, quando o usuário passa o mous
+  immediate, carrega imediatamente, util para testes
+  INTERACTION, quando clica ou a função que se passa por parametro da retorno
+  prefetch, 
+)
+when  - especifica uma condição que retorna um booleano 
+-->
+
+@defer (on timer(1s)) {
   <app-template-control-flow/>
 } @placeholder {
+  <!-- funciona enquanto está na condição -->
   <p>Mostrar antes</p>
 } @loading {
+  <!-- funciona quando sai da condição e começa o download -->
   <p>loading...</p>
 } @error {
   <p>Falhou</p>
