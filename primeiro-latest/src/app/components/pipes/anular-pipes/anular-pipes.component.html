@@ -1,0 +1,11 @@
+<p>anular-pipes works!</p>
+<!-- 
+pipes servem para tratar dados, eles pegam um valor e mostram esse valor formatado
+-->
+<!-- date() é o signal
+a barra indica um pipe
+date é o pipe 
+:'' é os atributos do date
+-->
+<p>{{ date() | date:'d/MMM/yyyy' }}</p>
+<p>{{ loadingData$ | async }}</p>
