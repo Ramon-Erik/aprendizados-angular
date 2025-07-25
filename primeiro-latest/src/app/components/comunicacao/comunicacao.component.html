@@ -1,0 +1,9 @@
+<h2>Comunicação entre pai e filho</h2>
+
+<app-input apelido="valor passado com input"/>
+<app-input inputDataS="valor passado com input signal"/>
+<app-input [inputDataS]="name"/>
+<app-output (age)="age.set($event)"/>
+<p>
+  {{ age() }}
+</p>
