@@ -9,3 +9,13 @@ date é o pipe
 -->
 <p>{{ date() | date:'d/MMM/yyyy' }}</p>
 <p>{{ loadingData$ | async }}</p>
+<p>{{ 2 | percent }}</p>
+<p>{{ .2 | percent }}</p>
+<hr>
+<p>3333333333.333333   ... {{ 3333333333.333333 | currency:'BRL':'symbol-narrow':'1.0-3'}}</p>
+<p>0.33 ... {{ 0.33 | currency }}</p>
+<p>33 ... {{ 33 | currency }}</p>
+<hr>
+<p>33.33 ... {{ 33.33 | number }}</p>
+<p>0.33 ... {{ 0.33 | number }}</p>
+<p>33 ... {{ 33 | number }}</p>
