@@ -9,11 +9,12 @@ import {
 import { Component, LOCALE_ID, signal } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 
-import localePt from '@angular/common/locales/pt' //faz com que os valores formatados por pipe fiquem em formato brasileiro
-registerLocaleData(localePt) //faz com que os valores formatados por pipe fiquem em formato brasileiro
+// ver isso no app.config
+// import localePt from '@angular/common/locales/pt' //faz com que os valores formatados por pipe fiquem em formato brasileiro
+// registerLocaleData(localePt) //faz com que os valores formatados por pipe fiquem em formato brasileiro
 
 @Component({
-  providers: [ { provide: LOCALE_ID, useValue: 'pt-BR' } ], //faz com que os valores formatados por pipe fiquem em formato brasileiro
+  // providers: [ { provide: LOCALE_ID, useValue: 'pt-BR' } ], //faz com que os valores formatados por pipe fiquem em formato brasileiro
   selector: 'app-anular-pipes',
   standalone: true,
   imports: [DatePipe, AsyncPipe, CurrencyPipe, DecimalPipe, PercentPipe],
