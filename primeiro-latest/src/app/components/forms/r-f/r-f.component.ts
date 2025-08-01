@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-r-f',
@@ -28,7 +28,7 @@ export class RFComponent {
   })
   // #FORMA 2
   public profileForm2 = this._fb.group({
-    data: [''],
+    data: ['', [Validators.minLength(4), Validators.maxLength(20), Validators.required]], //o primeiro é o valor, depois os validadores
     devoc: this._fb.group({
       cristo: ['Sagrado Coração'],
       mariana: ['NS Carmo']
