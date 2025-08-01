@@ -1,7 +1,7 @@
 <h2>Reactive Forms</h2>
 <form>
   <label for="inputId">
-    nome: <input type="text" name="nome" id="inputId" value="oi" [formControl]="name">
+    nome: <input type="text" name="nome" id="inputId" value="oi" [formControl]="name" required=""> 
     <!-- 
     [formControl]="name" coloca o valor inicisl da variavel name dentro da input
     -->
@@ -11,6 +11,10 @@
 </form>
 <p>
   {{name.value}}
+</p>
+<p>
+  {{name.errors | json}} 
+  <!-- ele mostra os erros de validação, ou seja, qual validação não deixou o valor passar -->
 </p>
 
 <h3>form control:</h3>
