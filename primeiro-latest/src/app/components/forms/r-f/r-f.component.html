@@ -1,1 +1,46 @@
 <h2>Reactive Forms</h2>
+<form>
+  <label for="inputId">
+    nome: <input type="text" name="nome" id="inputId" value="oi" [formControl]="name">
+    <!-- 
+    [formControl]="name" coloca o valor inicisl da variavel name dentro da input
+    -->
+  </label>
+  <button type="button" (click)="updateName()">Update name to "claudio"</button>
+  <!-- este button faz com que o valor da input seja alterado pelo ts através do formControl -->
+</form>
+<p>
+  {{name.value}}
+</p>
+
+<h3>form control:</h3>
+
+<form [formGroup]="profileForm">
+  <label for="dataId">
+    data:
+    <input type="date" name="data" id="dataId" formControlName="data">
+    <!-- formControlName é a chave do objeto FormGroup no ts -->
+  </label>
+  <div formGroupName="devoc">
+    <label>
+      Devoção maior: <input type="text" formControlName="cristo">
+    </label>
+    <br>
+    <label>
+      Devoção mariana: <input type="text" formControlName="mariana">
+    </label>
+  </div>
+  <button type="button" (click)="clearForm()">Clear</button>
+</form>
+
+<p>
+  data: {{profileForm.value.data}}
+</p>
+<p>
+  devoc: {{profileForm.value.devoc?.mariana}}
+</p>
+<p>
+  devoc: {{profileForm.value.devoc?.cristo}}
+</p>
+
+<!-- carrega os vaores do ts mas se mudar no fron ele muda o valor também -->

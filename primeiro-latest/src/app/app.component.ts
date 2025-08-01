@@ -16,8 +16,8 @@ import { RFComponent } from './components/forms/r-f/r-f.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent
-    TDFComponent, RFComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, 
+    RFComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
@@ -32,7 +32,7 @@ import { RFComponent } from './components/forms/r-f/r-f.component';
       <!-- <app-signals/> -->
       <!-- <app-comunicacao/> -->
       <!-- <app-anular-pipes/> -->
-      <app-t-d-f/>
+      <!-- <app-t-d-f/> -->
       <app-r-f/>
     </div>
   `,
