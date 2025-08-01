@@ -9,13 +9,15 @@ import { TemplateDeferrableViewComponent } from './components/template/template-
 import { SignalsComponent } from './components/signals/signals.component';
 import { ComunicacaoComponent } from './components/comunicacao/comunicacao.component';
 import { AnularPipesComponent } from './components/pipes/anular-pipes/anular-pipes.component';
+import { TDFComponent } from './components/forms/t-d-f/t-d-f.component';
+import { RFComponent } from './components/forms/r-f/r-f.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent
-    AnularPipesComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent
+    TDFComponent, RFComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
@@ -29,7 +31,9 @@ import { AnularPipesComponent } from './components/pipes/anular-pipes/anular-pip
       <!-- <app-template-deferrable-view/> -->
       <!-- <app-signals/> -->
       <!-- <app-comunicacao/> -->
-      <app-anular-pipes/>
+      <!-- <app-anular-pipes/> -->
+      <app-t-d-f/>
+      <app-r-f/>
     </div>
   `,
 })

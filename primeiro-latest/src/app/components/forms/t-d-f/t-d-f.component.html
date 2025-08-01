@@ -1,0 +1,15 @@
+<h2>Template Driven Forms</h2>
+<form>
+  <label for="nome">
+    Nome:
+    <input
+      type="text"
+      name="nameInput"
+      #name="ngModel"
+      [ngModel]="name.value"
+      required="true"
+    />
+  </label>
+</form>
+<p>Texto da input: {{name.value || "nada"}}</p>
+<p>fornece mais atributos a input: valid, dirty, touched. que servem para validação de dados e para melhorar a user experience através de estilos</p>
