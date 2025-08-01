@@ -1,5 +1,5 @@
 <h2>Template Driven Forms</h2>
-<form>
+<form #form="ngForm">
   <label for="nome">
     Nome:
     <input
@@ -10,6 +10,7 @@
       required="true"
     />
   </label>
+  <button [disabled]="!form.valid">enviar</button>
 </form>
 <p>Texto da input: {{name.value || "nada"}}</p>
 <p>fornece mais atributos a input: valid, dirty, touched. que servem para validação de dados e para melhorar a user experience através de estilos</p>
