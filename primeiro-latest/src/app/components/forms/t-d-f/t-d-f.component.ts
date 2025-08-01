@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-t-d-f',
@@ -9,5 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './t-d-f.component.scss'
 })
 export class TDFComponent {
-
+  public submitForm(form: NgForm) {
+    if (form.valid) {
+      // verificação extra, já que html pode ser mudado no dev tools
+      console.log(form.value)
+    }
+  }
 }

@@ -1,10 +1,11 @@
 <h2>Template Driven Forms</h2>
-<form #form="ngForm">
-  <label for="nome">
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+  <label for="nameInputId">
     Nome:
     <input
       type="text"
       name="nameInput"
+      id="nameInputId"
       #name="ngModel"
       [ngModel]="name.value"
       required="true"
