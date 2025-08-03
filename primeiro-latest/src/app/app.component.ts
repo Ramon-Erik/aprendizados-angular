@@ -12,13 +12,14 @@ import { AnularPipesComponent } from './components/pipes/anular-pipes/anular-pip
 import { TDFComponent } from './components/forms/t-d-f/t-d-f.component';
 import { RFComponent } from './components/forms/r-f/r-f.component';
 import { ContentComponent } from './components/content/content.component';
+import { HostElementsComponent } from './components/host-elements/host-elements.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent
-    ContentComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent
+    HostElementsComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
@@ -35,7 +36,7 @@ import { ContentComponent } from './components/content/content.component';
       <!-- <app-anular-pipes/> -->
       <!-- <app-t-d-f/> -->
       <!-- <app-r-f/> -->
-      <app-content>
+      <!-- <app-content>
         <h2 title>Esse titulo é do pai</h2>
         <p text>este texto é do componente pai</p>
         <div class="toChild">
@@ -45,7 +46,8 @@ import { ContentComponent } from './components/content/content.component';
           esssa aqui por id
         </div>
       </app-content>
-    </div>
+    </div> -->
+    <app-host-elements/>
   `,
 })
 export class AppComponent {
