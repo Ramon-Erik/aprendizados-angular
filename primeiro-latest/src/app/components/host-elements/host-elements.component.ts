@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-host-elements',
@@ -13,6 +13,9 @@ import { Component } from '@angular/core';
   }
 })
 export class HostElementsComponent {
+  // na versão antiga ao invés de host se usaria host decorators:
+  @HostBinding('role') public hostRole = 'button'
+  @HostBinding('attr.class') public hostClass = 'button'
   public class = 'umaClassEmVariavel'
   public updateValue(event: KeyboardEvent) {
     console.log(event.key);
