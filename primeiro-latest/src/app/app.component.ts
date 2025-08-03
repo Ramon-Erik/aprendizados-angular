@@ -11,13 +11,14 @@ import { ComunicacaoComponent } from './components/comunicacao/comunicacao.compo
 import { AnularPipesComponent } from './components/pipes/anular-pipes/anular-pipes.component';
 import { TDFComponent } from './components/forms/t-d-f/t-d-f.component';
 import { RFComponent } from './components/forms/r-f/r-f.component';
+import { ContentComponent } from './components/content/content.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, 
-    RFComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent
+    ContentComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
@@ -33,7 +34,17 @@ import { RFComponent } from './components/forms/r-f/r-f.component';
       <!-- <app-comunicacao/> -->
       <!-- <app-anular-pipes/> -->
       <!-- <app-t-d-f/> -->
-      <app-r-f/>
+      <!-- <app-r-f/> -->
+      <app-content>
+        <h2 title>Esse titulo é do pai</h2>
+        <p text>este texto é do componente pai</p>
+        <div class="toChild">
+          essa div é selecionada por classe
+        </div>
+        <div id="namedChild">
+          esssa aqui por id
+        </div>
+      </app-content>
     </div>
   `,
 })
