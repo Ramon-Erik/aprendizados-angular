@@ -19,7 +19,7 @@
 
 <h3>form control:</h3>
 
-<form [formGroup]="profileForm">
+<form [formGroup]="profileForm"  (ngSubmit)="submit()">
   <label for="dataId">
     data:
     <input type="date" name="data" id="dataId" formControlName="data">

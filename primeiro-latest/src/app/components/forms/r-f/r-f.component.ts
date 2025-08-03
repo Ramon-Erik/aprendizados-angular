@@ -56,4 +56,11 @@ export class RFComponent {
       }
     })
   }
+  public submit() {
+    console.log();
+    if (this.profileForm.valid) {
+      console.log(this.profileForm.value);
+      
+    }
+  }
 }
