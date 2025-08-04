@@ -1,4 +1,4 @@
-import { Component, Inject, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './life-cycle.component.html',
   styleUrl: './life-cycle.component.scss'
 })
-export class LifeCycleComponent implements OnChanges {
+export class LifeCycleComponent implements OnChanges, OnInit {
   // começa com o costrutor e ngOnInit
   constructor(
     private fb: FormBuilder
@@ -17,6 +17,10 @@ export class LifeCycleComponent implements OnChanges {
   // ngOnchange usa o implements e verifica as alteraç~es de Inputs
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+  }
+
+  ngOnInit(): void {
+    console.log('iniciou');
     
   }
 }
