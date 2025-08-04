@@ -13,13 +13,14 @@ import { TDFComponent } from './components/forms/t-d-f/t-d-f.component';
 import { RFComponent } from './components/forms/r-f/r-f.component';
 import { ContentComponent } from './components/content/content.component';
 import { HostElementsComponent } from './components/host-elements/host-elements.component';
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent
-    HostElementsComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent, HostElementsComponent
+    LifeCycleComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
@@ -47,7 +48,8 @@ import { HostElementsComponent } from './components/host-elements/host-elements.
         </div>
       </app-content>
     </div> -->
-    <app-host-elements/>
+    <!-- <app-host-elements/> -->
+    <app-life-cycle/>
   `,
 })
 export class AppComponent {
