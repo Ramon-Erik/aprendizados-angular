@@ -1,3 +1,15 @@
 <p #nomeSignal></p>
 <p #nomeRxjs></p>
 <app-new-component/>
+<h2>Primeiro get</h2>
+<ul>
+  @for (item of getTask(); track $index) {
+    <li>
+      {{item.id}} - {{item.title}}
+    </li>
+  } @empty {
+    <li>
+      loading...
+    </li>
+  }
+</ul>

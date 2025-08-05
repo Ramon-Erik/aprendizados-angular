@@ -1,5 +1,7 @@
-import { Injectable, signal } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,5 +10,9 @@ export class ApiService {
   // com signal pode ser usado como
   public name = signal("nome com signal")
   public name$ = new BehaviorSubject('Nome com rxjs')
-  constructor() { }
+  #http = inject(HttpClient)
+  #url = signal(environment.apiTask)
+  public httpListTask$(): Observable<Array<{id: string, title: string}>> {
+    return this.#http.get<Array<{id: string, title: string}>>(this.#url())
+  }
 }
