@@ -14,30 +14,32 @@ import { RFComponent } from './components/forms/r-f/r-f.component';
 import { ContentComponent } from './components/content/content.component';
 import { HostElementsComponent } from './components/host-elements/host-elements.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { ConsumeServiceComponent } from './components/consume-service/consume-service.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent, HostElementsComponent
-    LifeCycleComponent
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent, HostElementsComponent, LifeCycleComponent
+    ConsumeServiceComponent
   ],
   template: `
   <!--<router-outlet></router-outlet> -->
     <!-- <h1>Oii {{title}}</h1> -->
     <div class="theme-dark">
       <h1>Curso de angular com Dener</h1>
-      <!-- <app-new-component/>
-      <app-templates-binding/> -->
-      <!-- <app-templates-variables/> -->
-      <!-- <app-template-control-flow/> -->
-      <!-- <app-template-deferrable-view/> -->
-      <!-- <app-signals/> -->
-      <!-- <app-comunicacao/> -->
-      <!-- <app-anular-pipes/> -->
-      <!-- <app-t-d-f/> -->
-      <!-- <app-r-f/> -->
-      <!-- <app-content>
+      <!-- 
+      <app-new-component/>
+      <app-templates-binding/> 
+      <app-templates-variables/>
+      <app-template-control-flow/>
+      <app-template-deferrable-view/>
+      <app-signals/>
+      <app-comunicacao/>
+      <app-anular-pipes/>
+      <app-t-d-f/>
+      <app-r-f/>
+      <app-content>
         <h2 title>Esse titulo é do pai</h2>
         <p text>este texto é do componente pai</p>
         <div class="toChild">
@@ -47,9 +49,11 @@ import { LifeCycleComponent } from './life-cycle/life-cycle.component';
           esssa aqui por id
         </div>
       </app-content>
-    </div> -->
-    <!-- <app-host-elements/> -->
+    </div>
+    <app-host-elements/>
     <app-life-cycle/>
+      -->
+      <app-consume-service/>
   `,
 })
 export class AppComponent {
