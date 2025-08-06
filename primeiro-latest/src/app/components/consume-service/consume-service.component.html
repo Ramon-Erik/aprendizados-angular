@@ -2,8 +2,11 @@
 <p #nomeRxjs></p>
 <app-new-component/>
 <h2>Primeiro get</h2>
+<p>
+  {{getTask$ | async | json}}
+</p>
 <ul>
-  @for (item of getTask(); track $index) {
+  @for (item of getTask$ | async; track $index) {
     <li>
       {{item.id}} - {{item.title}}
     </li>

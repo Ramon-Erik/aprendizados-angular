@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, shareReplay } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -13,6 +13,8 @@ export class ApiService {
   #http = inject(HttpClient)
   #url = signal(environment.apiTask)
   public httpListTask$(): Observable<Array<{id: string, title: string}>> {
-    return this.#http.get<Array<{id: string, title: string}>>(this.#url())
+    return this.#http.get<Array<{id: string, title: string}>>(this.#url()).pipe(
+      shareReplay()
+    )
   }
 }

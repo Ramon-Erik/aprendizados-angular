@@ -8,11 +8,12 @@ import {
 } from '@angular/core';
 import { NewComponent } from '../new-component/new-component.component';
 import { ApiService } from '../../services/api.service';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-consume-service',
   standalone: true,
-  imports: [NewComponent],
+  imports: [NewComponent, AsyncPipe, JsonPipe],
   templateUrl: './consume-service.component.html',
   styleUrl: './consume-service.component.scss',
 })
@@ -20,15 +21,14 @@ export class ConsumeServiceComponent implements OnInit {
   @ViewChild('nomeSignal') pSignal!: ElementRef;
   @ViewChild('nomeRxjs') pRxjs!: ElementRef;
   #apiService = inject(ApiService);
-  public getTask = signal<null | Array<{id: string, title: string}>>(null)
+  public getTask$ = this.#apiService.httpListTask$();
+  public getTask = signal<null | Array<{ id: string; title: string }>>(null);
   ngOnInit(): void {
-    this.#apiService
-      .httpListTask$()
-      .subscribe({
-        next: (next) => this.getTask.set(next),
-        error: console.log,
-        complete: console.log,
-      });
+    this.getTask$.subscribe({
+      next: (next) => this.getTask.set(next),
+      error: console.log,
+      complete: console.log,
+    });
     // {
     //   console.log(this.#apiService.name()); // funciona poiu é um signal
     // console.log(this.#apiService.name$); // retorna um objeto, deve ser usado de outra forma
