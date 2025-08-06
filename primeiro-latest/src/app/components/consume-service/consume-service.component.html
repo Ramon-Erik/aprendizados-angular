@@ -1,18 +1,21 @@
-<p #nomeSignal></p>
-<p #nomeRxjs></p>
-<app-new-component/>
+<app-new-component />
 <h2>Primeiro get</h2>
-<p>
+<!-- <p>
   {{getTask$ | async | json}}
-</p>
+</p> -->
+
+
+@if (getListTask(); as data) { 
 <ul>
-  @for (item of getTask$ | async; track $index) {
-    <li>
-      {{item.id}} - {{item.title}}
-    </li>
+  <!-- observavle usa async -->
+  <!-- @for (item of getTask$ | async; track $index) { -->
+  <!-- sgnal não precisa -->
+  @for (item of data; track $index) {
+  <li>{{ item.id }} - {{ item.title }}</li>
   } @empty {
-    <li>
-      loading...
-    </li>
+  <li>sem dados...</li>
   }
 </ul>
+} @else {
+  <p>loading</p>
+}

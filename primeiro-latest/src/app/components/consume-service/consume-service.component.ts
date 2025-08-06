@@ -6,6 +6,7 @@ import {
   signal,
   ViewChild,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { NewComponent } from '../new-component/new-component.component';
 import { ApiService } from '../../services/api.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
@@ -18,17 +19,22 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   styleUrl: './consume-service.component.scss',
 })
 export class ConsumeServiceComponent implements OnInit {
-  @ViewChild('nomeSignal') pSignal!: ElementRef;
-  @ViewChild('nomeRxjs') pRxjs!: ElementRef;
   #apiService = inject(ApiService);
-  public getTask$ = this.#apiService.httpListTask$();
-  public getTask = signal<null | Array<{ id: string; title: string }>>(null);
+
+  // public getTask$ = this.#apiService.httpListTask$();
+  // isso pode virar signal com a função to signal
+  // import {toSignal} from '@angular/core/rxjs-interop'
+  // public getTask = toSignal(this.#apiService.httpListTask$());
+
+  public getListTask = this.#apiService.getListTasks
+
   ngOnInit(): void {
-    this.getTask$.subscribe({
-      next: (next) => this.getTask.set(next),
-      error: console.log,
-      complete: console.log,
-    });
+    this.#apiService.httpListTask$().subscribe() // o tap vai colocar os valores no getTask
+    // this.getTask$.subscribe({
+    //   next: (next) => console.log,
+    //   error: console.log,
+    //   complete: console.log,
+    // });
     // {
     //   console.log(this.#apiService.name()); // funciona poiu é um signal
     // console.log(this.#apiService.name$); // retorna um objeto, deve ser usado de outra forma
