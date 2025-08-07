@@ -10,6 +10,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { NewComponent } from '../new-component/new-component.component';
 import { ApiService } from '../../services/api.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-consume-service',
@@ -28,6 +29,16 @@ export class ConsumeServiceComponent implements OnInit {
 
   public getListTask = this.#apiService.getListTasks
   public getTaskID = this.#apiService.getTaskID
+
+  public httpTaskCreate(title: string) {
+    return this.#apiService.httpCreateTask$(title).pipe(
+      concatMap(() => this.#apiService.httpListTask$())
+    ).subscribe({
+      next: (next) => {},
+      error: console.log,
+      complete: console.log,
+    })
+  }
 
   ngOnInit(): void {
     this.#apiService.httpListTask$().subscribe() // o tap vai colocar os valores no getTask

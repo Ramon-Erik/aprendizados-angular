@@ -33,13 +33,30 @@ export class ApiService {
   get getTaskID() {
     return this.#setTaskID.asReadonly();
   }
-  
+
   public httpTaskID$(id: string): Observable<{ id: string; title: string }> {
     return this.#http
       .get<{ id: string; title: string }>(`${this.#url()}${id}`)
       .pipe(
         shareReplay(),
         tap((res) => this.#setTaskID.set(res))
+      );
+  }
+
+  #setCreateTask = signal<{ id: string; title: string } | null>(null);
+
+  get getCreateTask() {
+    return this.#setCreateTask.asReadonly();
+  }
+
+  public httpCreateTask$(
+    title: string
+  ): Observable<{ id: string; title: string }> {
+    return this.#http
+      .post<{ id: string; title: string }>(this.#url(), { title })
+      .pipe(
+        shareReplay(),
+        tap((res) => this.#setCreateTask.set(res))
       );
   }
 }

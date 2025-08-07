@@ -21,6 +21,12 @@
 }
 
 <h3>Get item ID</h3>
-<p>
-  {{getTaskID()?.title || "null"}}
-</p>
+@if (getTaskID()) {
+  <p>
+    {{getTaskID()?.title}}
+  </p>
+}
+
+<h3>Post create</h3>
+<input type="text" name="title" id="titleID" #taskTitle>
+<button type="button" (click)="httpTaskCreate(taskTitle.value)">Create</button>
