@@ -14,7 +14,7 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-consume-service',
   standalone: true,
-  imports: [NewComponent, AsyncPipe, JsonPipe],
+  imports: [NewComponent],
   templateUrl: './consume-service.component.html',
   styleUrl: './consume-service.component.scss',
 })
@@ -27,9 +27,11 @@ export class ConsumeServiceComponent implements OnInit {
   // public getTask = toSignal(this.#apiService.httpListTask$());
 
   public getListTask = this.#apiService.getListTasks
+  public getTaskID = this.#apiService.getTaskID
 
   ngOnInit(): void {
     this.#apiService.httpListTask$().subscribe() // o tap vai colocar os valores no getTask
+    this.#apiService.httpTaskID$('klSNowU032B1sEXZ41Jl').subscribe() // o tap vai colocar os valores no getTask
     // this.getTask$.subscribe({
     //   next: (next) => console.log,
     //   error: console.log,
