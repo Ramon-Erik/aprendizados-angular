@@ -14,11 +14,9 @@ export class ApiService {
   #url = signal(environment.apiTask);
 
   #setTaskList = signal<Array<{ id: string; title: string }> | null>(null);
-
   get getTaskList() {
     return this.#setTaskList.asReadonly();
   }
-
   public httpTaskList$(): Observable<Array<{ id: string; title: string }>> {
     return this.#http
       .get<Array<{ id: string; title: string }>>(this.#url())
@@ -29,11 +27,9 @@ export class ApiService {
   }
 
   #setTaskID = signal<{ id: string; title: string } | null>(null);
-
   get getTaskID() {
     return this.#setTaskID.asReadonly();
   }
-
   public httpTaskID$(id: string): Observable<{ id: string; title: string }> {
     return this.#http
       .get<{ id: string; title: string }>(`${this.#url()}${id}`)
@@ -43,12 +39,6 @@ export class ApiService {
       );
   }
 
-  #setCreateTask = signal<{ id: string; title: string } | null>(null);
-
-  get getCreateTask() {
-    return this.#setCreateTask.asReadonly();
-  }
-
   public httpCreateTask$(
     title: string
   ): Observable<{ id: string; title: string }> {
@@ -56,16 +46,9 @@ export class ApiService {
       .post<{ id: string; title: string }>(this.#url(), { title })
       .pipe(
         shareReplay(),
-        tap((res) => this.#setCreateTask.set(res))
       );
   }
   
-  #setUpdateTask = signal<{ id: string; title: string } | null>(null);
-
-  get getUpdateTask() {
-    return this.#setUpdateTask.asReadonly();
-  }
-
   public httpUpdateTask$(
     id: string,
     title: string
@@ -76,7 +59,6 @@ export class ApiService {
       .patch<{ id: string; title: string }>(`${this.#url()}${id}`, { title })
       .pipe(
         shareReplay(),
-        tap((res) => this.#setUpdateTask.set(res))
       );
   }
 }
