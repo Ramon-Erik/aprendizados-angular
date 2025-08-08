@@ -27,25 +27,27 @@ export class ConsumeServiceComponent implements OnInit {
   // import {toSignal} from '@angular/core/rxjs-interop'
   // public getTask = toSignal(this.#apiService.httpTaskList$());
 
-  public getTaskList = this.#apiService.getTaskList
-  public getTaskID = this.#apiService.getTaskID
+  public getTaskList = this.#apiService.getTaskList;
+  public getTaskID = this.#apiService.getTaskID;
 
   public httpCreateTask(title: string) {
-    return this.#apiService.httpCreateTask$(title).pipe(
-      concatMap(() => this.#apiService.httpTaskList$())
-    ).subscribe()
+    return this.#apiService
+      .httpCreateTask$(title)
+      .pipe(concatMap(() => this.#apiService.httpTaskList$()))
+      .subscribe();
   } // com esse pipe antes do subscribe ele tenta criar primeiro e depois se inscreve
   // se der erro ele não prossegue
 
   public httpUpdateTask(id: string, title: string) {
-    return this.#apiService.httpUpdateTask$(id, title).pipe(
-      concatMap(() => this.#apiService.httpTaskList$())
-    ).subscribe()
-  } 
+    return this.#apiService
+      .httpUpdateTask$(id, title)
+      .pipe(concatMap(() => this.#apiService.httpTaskList$()))
+      .subscribe();
+  }
 
   ngOnInit(): void {
-    this.#apiService.httpTaskList$().subscribe() // o tap vai colocar os valores no getTask
-    this.#apiService.httpTaskID$('klSNowU032B1sEXZ41Jl').subscribe() // o tap vai colocar os valores no getTask
+    this.#apiService.httpTaskList$().subscribe(); // o tap vai colocar os valores no getTask
+    this.#apiService.httpTaskID$('klSNowU032B1sEXZ41Jl').subscribe(); // o tap vai colocar os valores no getTask
     // this.getTask$.subscribe({
     //   next: (next) => console.log,
     //   error: console.log,
