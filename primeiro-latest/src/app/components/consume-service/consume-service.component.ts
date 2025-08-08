@@ -30,7 +30,7 @@ export class ConsumeServiceComponent implements OnInit {
   public getTaskList = this.#apiService.getTaskList
   public getTaskID = this.#apiService.getTaskID
 
-  public httpTaskCreate(title: string) {
+  public httpCreateTask(title: string) {
     return this.#apiService.httpCreateTask$(title).pipe(
       concatMap(() => this.#apiService.httpTaskList$())
     ).subscribe()
