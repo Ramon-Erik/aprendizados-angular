@@ -18,6 +18,7 @@ export class ApiService {
     return this.#setTaskList.asReadonly();
   }
   public httpTaskList$(): Observable<Array<{ id: string; title: string }>> {
+    this.#setTaskList.set(null)
     return this.#http
       .get<Array<{ id: string; title: string }>>(this.#url())
       .pipe(
