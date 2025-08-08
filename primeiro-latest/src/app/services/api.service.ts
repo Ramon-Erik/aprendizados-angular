@@ -13,18 +13,18 @@ export class ApiService {
   #http = inject(HttpClient);
   #url = signal(environment.apiTask);
 
-  #setListTask = signal<Array<{ id: string; title: string }> | null>(null);
+  #setTaskList = signal<Array<{ id: string; title: string }> | null>(null);
 
-  get getListTasks() {
-    return this.#setListTask.asReadonly();
+  get getTaskList() {
+    return this.#setTaskList.asReadonly();
   }
 
-  public httpListTask$(): Observable<Array<{ id: string; title: string }>> {
+  public httpTaskList$(): Observable<Array<{ id: string; title: string }>> {
     return this.#http
       .get<Array<{ id: string; title: string }>>(this.#url())
       .pipe(
         shareReplay(),
-        tap((res) => this.#setListTask.set(res))
+        tap((res) => this.#setTaskList.set(res))
       );
   }
 

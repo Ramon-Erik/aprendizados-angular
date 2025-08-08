@@ -22,26 +22,23 @@ import { concatMap } from 'rxjs';
 export class ConsumeServiceComponent implements OnInit {
   #apiService = inject(ApiService);
 
-  // public getTask$ = this.#apiService.httpListTask$();
+  // public getTask$ = this.#apiService.httpTaskList$();
   // isso pode virar signal com a função to signal
   // import {toSignal} from '@angular/core/rxjs-interop'
-  // public getTask = toSignal(this.#apiService.httpListTask$());
+  // public getTask = toSignal(this.#apiService.httpTaskList$());
 
-  public getListTask = this.#apiService.getListTasks
+  public getTaskList = this.#apiService.getTaskList
   public getTaskID = this.#apiService.getTaskID
 
   public httpTaskCreate(title: string) {
     return this.#apiService.httpCreateTask$(title).pipe(
-      concatMap(() => this.#apiService.httpListTask$())
-    ).subscribe({
-      next: (next) => {},
-      error: console.log,
-      complete: console.log,
-    })
-  }
+      concatMap(() => this.#apiService.httpTaskList$())
+    ).subscribe()
+  } // com esse pipe antes do subscribe ele tenta criar primeiro e depois se inscreve
+  // se der erro ele não prossegue
 
   ngOnInit(): void {
-    this.#apiService.httpListTask$().subscribe() // o tap vai colocar os valores no getTask
+    this.#apiService.httpTaskList$().subscribe() // o tap vai colocar os valores no getTask
     this.#apiService.httpTaskID$('klSNowU032B1sEXZ41Jl').subscribe() // o tap vai colocar os valores no getTask
     // this.getTask$.subscribe({
     //   next: (next) => console.log,
