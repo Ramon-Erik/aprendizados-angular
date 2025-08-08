@@ -59,4 +59,24 @@ export class ApiService {
         tap((res) => this.#setCreateTask.set(res))
       );
   }
+  
+  #setUpdateTask = signal<{ id: string; title: string } | null>(null);
+
+  get getUpdateTask() {
+    return this.#setUpdateTask.asReadonly();
+  }
+
+  public httpUpdateTask$(
+    id: string,
+    title: string
+  ): Observable<{ id: string; title: string }> {
+    console.log(`${this.#url()}${id}`, { title });
+    
+    return this.#http
+      .patch<{ id: string; title: string }>(`${this.#url()}${id}`, { title })
+      .pipe(
+        shareReplay(),
+        tap((res) => this.#setUpdateTask.set(res))
+      );
+  }
 }

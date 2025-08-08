@@ -4,8 +4,7 @@
   {{getTask$ | async | json}}
 </p> -->
 
-
-@if (getTaskList(); as data) { 
+@if (getTaskList(); as data) {
 <ul>
   <!-- observavle usa async -->
   <!-- @for (item of getTask$ | async; track $index) { -->
@@ -17,16 +16,26 @@
   }
 </ul>
 } @else {
-  <p>loading</p>
+<p>loading</p>
 }
 
 <h3>Get item ID</h3>
 @if (getTaskID()) {
-  <p>
-    {{getTaskID()?.title}}
-  </p>
+<p>
+  {{ getTaskID()?.title }}
+</p>
 }
 
 <h3>Post create</h3>
-<input type="text" name="title" id="titleID" #taskTitle>
+<input type="text" name="title" id="titleID" #taskTitle />
 <button type="button" (click)="httpCreateTask(taskTitle.value)">Create</button>
+
+<h3>patch task</h3>
+<input type="text" name="taskID" id="taskID" #taskID />
+<input type="text" name="titleUpdate" id="titleUpdateID" #taskTitleUpdate />
+<button
+  type="button"
+  (click)="httpUpdateTask(taskID.value, taskTitleUpdate.value)"
+>
+  Update
+</button>

@@ -37,6 +37,12 @@ export class ConsumeServiceComponent implements OnInit {
   } // com esse pipe antes do subscribe ele tenta criar primeiro e depois se inscreve
   // se der erro ele não prossegue
 
+  public httpUpdateTask(id: string, title: string) {
+    return this.#apiService.httpUpdateTask$(id, title).pipe(
+      concatMap(() => this.#apiService.httpTaskList$())
+    ).subscribe()
+  } 
+
   ngOnInit(): void {
     this.#apiService.httpTaskList$().subscribe() // o tap vai colocar os valores no getTask
     this.#apiService.httpTaskID$('klSNowU032B1sEXZ41Jl').subscribe() // o tap vai colocar os valores no getTask
