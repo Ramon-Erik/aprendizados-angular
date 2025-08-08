@@ -44,6 +44,13 @@ export class ConsumeServiceComponent implements OnInit {
       .pipe(concatMap(() => this.#apiService.httpTaskList$()))
       .subscribe();
   }
+  
+  public httpDeleteTask(id: string) {
+    return this.#apiService
+      .httpDeleteTask$(id)
+      .pipe(concatMap(() => this.#apiService.httpTaskList$()))
+      .subscribe();
+  }
 
   ngOnInit(): void {
     this.#apiService.httpTaskList$().subscribe(); // o tap vai colocar os valores no getTask

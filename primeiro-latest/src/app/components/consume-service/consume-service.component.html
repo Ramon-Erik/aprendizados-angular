@@ -10,7 +10,7 @@
   <!-- @for (item of getTask$ | async; track $index) { -->
   <!-- sgnal não precisa -->
   @for (item of data; track $index) {
-  <li>{{ item.id }} - {{ item.title }}</li>
+  <li>{{ item.id }} - {{ item.title }} <button (click)="httpDeleteTask(item.id)">Delete</button></li>
   } @empty {
   <li>sem dados...</li>
   }

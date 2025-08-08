@@ -61,4 +61,14 @@ export class ApiService {
         shareReplay(),
       );
   }
+
+  public httpDeleteTask$(
+    id: string,
+  ): Observable<{ id: string; title: string }> {
+    return this.#http
+      .delete<{ id: string; title: string }>(`${this.#url()}${id}`)
+      .pipe(
+        shareReplay(),
+      );
+  }
 }
