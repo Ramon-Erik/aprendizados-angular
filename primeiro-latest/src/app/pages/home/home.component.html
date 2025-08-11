@@ -1,3 +1,4 @@
 <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a><br />
 <a routerLink="/about" ariaCurrentWhenActive="page">About</a><br />
-<a routerLink="/services" ariaCurrentWhenActive="page">Services</a>
+<a routerLink="/services/1" ariaCurrentWhenActive="page">Services</a> com router link <br>
+<a [routerLink]="['/services', 1]" ariaCurrentWhenActive="page">Services</a> com [router link]
