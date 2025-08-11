@@ -1,4 +1,18 @@
-<a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a><br />
+<a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+  >Home</a
+><br />
 <a routerLink="/about" ariaCurrentWhenActive="page">About</a><br />
-<a routerLink="/services/1" ariaCurrentWhenActive="page">Services</a> com router link <br>
-<a [routerLink]="['/services', 1]" ariaCurrentWhenActive="page">Services</a> com [router link]
+<a
+routerLink="/services/1"
+ariaCurrentWhenActive="page"
+[queryParams]="{ nome: 'ramones' }"
+>Services</a
+>
+com router link <br />
+<a
+[routerLink]="['/services', 1]"
+[queryParams]="{ nome: 'ramones' }"
+  ariaCurrentWhenActive="page"
+  >Services</a
+>
+com [router link]
