@@ -8,28 +8,28 @@ export const routes: Routes = [
   {
     path: '',
     title: 'Home',
-    component: HomeComponent,
+    loadComponent: () => import('./pages/home/home.component').then(p => p.HomeComponent),
     children: [
       {
         path: 'home',
         title: 'Home',
-        component: HomeComponent,
+        loadComponent: () => import('./pages/home/home.component').then(p => p.HomeComponent),
       },
       {
         path: 'about',
         title: 'Sobre nós',
-        component: AboutComponent,
+        loadComponent: () => import('./pages/about/about.component').then(p => p.AboutComponent),
       },
       {
         path: 'services/:id',
         title: 'Nossos serviços',
-        component: ServicesComponent,
+        loadComponent: () => import('./pages/services/services.component').then(p => p.ServicesComponent),
       },
     ],
   },
   { // rotas coringas ficam sempre no final
     path: '**',
     title: '404',
-    component: NotFoundComponent,
+    loadComponent: () => import('./pages/not-found/not-found.component').then(p => p.NotFoundComponent),
   }
 ];
