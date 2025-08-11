@@ -22,7 +22,6 @@ export class ApiService {
     return this.#http
       .get<Array<{ id: string; title: string }>>(this.#url())
       .pipe(
-        shareReplay(),
         tap((res) => this.#setTaskList.set(res))
       );
   }
@@ -35,7 +34,6 @@ export class ApiService {
     return this.#http
       .get<{ id: string; title: string }>(`${this.#url()}${id}`)
       .pipe(
-        shareReplay(),
         tap((res) => this.#setTaskID.set(res))
       );
   }
@@ -46,7 +44,6 @@ export class ApiService {
     return this.#http
       .post<{ id: string; title: string }>(this.#url(), { title })
       .pipe(
-        shareReplay(),
       );
   }
   
@@ -59,7 +56,6 @@ export class ApiService {
     return this.#http
       .patch<{ id: string; title: string }>(`${this.#url()}${id}`, { title })
       .pipe(
-        shareReplay(),
       );
   }
 
@@ -69,7 +65,6 @@ export class ApiService {
     return this.#http
       .delete<{ id: string; title: string }>(`${this.#url()}${id}`)
       .pipe(
-        shareReplay(),
       );
   }
 }
