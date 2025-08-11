@@ -9,7 +9,7 @@ export const routes: Routes = [
     path: '',
     title: 'Home',
     loadComponent: () => import('./pages/home/home.component').then(p => p.HomeComponent),
-    children: [
+    children: [ // tem como colar essas filhas em outro arquivo, para fazer um lazy loading maior
       {
         path: 'home',
         title: 'Home',
