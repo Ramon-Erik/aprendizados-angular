@@ -6,28 +6,30 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
-    path: '**',
-    title: 'Home',
-    component: NotFoundComponent
-  },
-  {
     path: '',
     title: 'Home',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: 'home',
+        title: 'Home',
+        component: HomeComponent,
+      },
+      {
+        path: 'about',
+        title: 'Sobre nós',
+        component: AboutComponent,
+      },
+      {
+        path: 'services/:id',
+        title: 'Nossos serviços',
+        component: ServicesComponent,
+      },
+    ],
   },
-  {
-    path: 'home',
-    title: 'Home',
-    component: HomeComponent
-  },
-  {
-    path: 'about',
-    title: 'Sobre nós',
-    component: AboutComponent
-  },
-  {
-    path: 'services/:id',
-    title: 'Nossos serviços',
-    component: ServicesComponent
+  { // rotas coringas ficam sempre no final
+    path: '**',
+    title: '404',
+    component: NotFoundComponent,
   }
 ];
