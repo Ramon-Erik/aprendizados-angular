@@ -20,24 +20,23 @@ import { ConsumeServiceComponent } from './components/consume-service/consume-se
   selector: 'app-root',
   standalone: true,
   imports: [
-    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent, HostElementsComponent, LifeCycleComponent
-    ConsumeServiceComponent
-  ],
+    // NewComponent, TemplatesBindingComponent, TemplatesVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewComponent, SignalsComponent,ComunicacaoComponent, AnularPipesComponent, TDFComponent, RFComponent ,ContentComponent, HostElementsComponent, LifeCycleComponent, ConsumeServiceComponent,
+    RouterOutlet
+],
   template: `
-  <!--<router-outlet></router-outlet> -->
     <!-- <h1>Oii {{title}}</h1> -->
     <div class="theme-dark">
       <h1>Curso de angular com Dener</h1>
       <!-- 
-      <app-new-component/>
-      <app-templates-binding/> 
-      <app-templates-variables/>
-      <app-template-control-flow/>
-      <app-template-deferrable-view/>
-      <app-signals/>
-      <app-comunicacao/>
-      <app-anular-pipes/>
-      <app-t-d-f/>
+        <app-new-component/>
+        <app-templates-binding/> 
+        <app-templates-variables/>
+        <app-template-control-flow/>
+        <app-template-deferrable-view/>
+        <app-signals/>
+        <app-comunicacao/>
+        <app-anular-pipes/>
+        <app-t-d-f/>
       <app-r-f/>
       <app-content>
         <h2 title>Esse titulo é do pai</h2>
@@ -52,8 +51,9 @@ import { ConsumeServiceComponent } from './components/consume-service/consume-se
     </div>
     <app-host-elements/>
     <app-life-cycle/>
-      -->
-      <app-consume-service/>
+    <app-consume-service/>
+  -->
+  <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {
