@@ -20,6 +20,6 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
     console.log('oi');
     console.log('[acessando] o id é: ', this.#route.snapshot.params['id']);
-    this.#route.params.subscribe((req) => console.log('[subscribe] o id é: ', this.#route.snapshot.params['id']))
+    this.#route.params.subscribe((res) => console.log('[subscribe] o id é: ', res['id']))
   }
 }
