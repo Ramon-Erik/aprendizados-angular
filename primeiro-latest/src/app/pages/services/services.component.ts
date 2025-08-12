@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -10,6 +10,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 export class ServicesComponent implements OnInit {
   #route = inject(ActivatedRoute);
+  #router = inject(Router)
+
 
   public serviceId = signal<null | string>('null');
   @Input() set id(idParam: any) {
@@ -30,5 +32,9 @@ export class ServicesComponent implements OnInit {
       
       
     })
+    
+    console.log('saindo da services ');
+    
+    this.#router.navigate(['/'])
   }
 }
