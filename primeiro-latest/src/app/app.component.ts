@@ -53,6 +53,7 @@ import { ConsumeServiceComponent } from './components/consume-service/consume-se
     <app-life-cycle/>
     <app-consume-service/>
   -->
+  <h1>rotas</h1>
   <router-outlet></router-outlet>
   `,
 })
