@@ -4,6 +4,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { canActGuard } from './guard/can-act.guard';
+import { canActivateChildGuard } from './guard/can-activate-child.guard';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,8 @@ export const routes: Routes = [
     title: 'Home',
     loadComponent: () =>
       import('./pages/home/home.component').then((p) => p.HomeComponent),
+      canActivateChild: [canActivateChildGuard] // a proteção de rotas filhas vai ser ativada em todas as rotas filhas
+      // mas nesse caso aqui não tem nenhuma
   },
   {
     path: 'about',
