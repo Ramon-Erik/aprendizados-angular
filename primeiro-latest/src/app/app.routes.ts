@@ -5,6 +5,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { canActGuard } from './guard/can-act.guard';
 import { canActivateChildGuard } from './guard/can-activate-child.guard';
+import { canMatchGuard } from './guard/can-match.guard';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,7 @@ export const routes: Routes = [
     title: 'Sobre nós',
     loadComponent: () =>
       import('./pages/about/about.component').then((p) => p.AboutComponent),
+    canMatch: [canMatchGuard]
   },
   {
     path: 'services/:id',
