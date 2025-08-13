@@ -1,10 +1,12 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
@@ -37,4 +39,8 @@ export class ServicesComponent implements OnInit {
     
     this.#router.navigate(['/'])
   }
+
+  public form = new FormGroup({
+    name: new FormControl(null, [Validators.required])
+  })
 }

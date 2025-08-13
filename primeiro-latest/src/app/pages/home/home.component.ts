@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -8,6 +8,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-
+export class HomeComponent implements OnInit{
+  ngOnInit(): void {
+    console.log('eu sou a home');
+    
+  }
 }

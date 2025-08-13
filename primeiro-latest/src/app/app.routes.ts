@@ -6,6 +6,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { canActGuard } from './guard/can-act.guard';
 import { canActivateChildGuard } from './guard/can-activate-child.guard';
 import { canMatchGuard } from './guard/can-match.guard';
+import { canDeacGuard } from './guard/can-deac.guard';
 
 export const routes: Routes = [
   {
@@ -21,8 +22,9 @@ export const routes: Routes = [
     title: 'Home',
     loadComponent: () =>
       import('./pages/home/home.component').then((p) => p.HomeComponent),
-      canActivateChild: [canActivateChildGuard] // a proteção de rotas filhas vai ser ativada em todas as rotas filhas
+      // canActivateChild: [canActivateChildGuard], // a proteção de rotas filhas vai ser ativada em todas as rotas filhas
       // mas nesse caso aqui não tem nenhuma
+      // canDeactivate: [canDeacGuard] // o deactivate impede de sair de um canto. consegue entrar nela, não sair
   },
   {
     path: 'about',
@@ -38,7 +40,8 @@ export const routes: Routes = [
       import('./pages/services/services.component').then(
         (p) => p.ServicesComponent
       ),
-    canActivate: [canActGuard], // a proteção de rotas serve sempre individualmente
+    // canActivate: [canActGuard], // a proteção de rotas serve sempre individualmente
+    canDeactivate: [canDeacGuard] 
   },
   {
     // rotas coringas ficam sempre no final

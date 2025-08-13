@@ -1,3 +1,7 @@
 <h2> service: {{serviceId ()}}</h2>
 <a routerLink="/home">Home</a><br>
 <a routerLink="/about">About</a>
+
+<form [formGroup]="form">
+  <input type="text" formControlName="name">
+</form>
